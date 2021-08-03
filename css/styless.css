@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    background: #fafaf8;
+}
+
+
+/* Evitar que se pueda scrollear mientras esta abierto el menu */
+
+body.mobile-menu-active {
+    overflow: hidden;
+}
+
+a {
+    color: #000000;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 8px 8vw;
+    width: 100%;
+    background: rgba(251, 251, 249, 0.769);
+}
+
+h1 {
+    font-size: 38px;
+}
+
+
+/* Menu Mobile */
+
+
+/* Boton que contiene el icono hamburguesa y la cruz */
+
+#burger-menu-button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: #000000;
+    font-size: 26px;
+    z-index: 2;
+}
+
+#close-mobile-menu {
+    display: none;
+}
+
+body.mobile-menu-active #close-mobile-menu {
+    display: block;
+}
+
+body.mobile-menu-active #open-mobile-menu {
+    display: none;
+}
+
+nav {
+    display: none;
+}
+
+body.mobile-menu-active nav {
+    display: block;
+}
+
+nav #main-menu {
+    display: flex;
+}
+
+@media (max-width: 760px) {
+    body.mobile-menu-active nav #main-menu {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1;
+        background-color: #fafaf8;
+    }
+    /* Para que quede mejor el boton hamburguesa cuando
+    este abierto el menu */
+    body.mobile-menu-active header {
+        justify-content: flex-end;
+    }
+}
+
+.menu-item {
+    margin: 0 10px;
+}
+
+.menu-item a {
+    padding: 6px 16px;
+    font-size: 20px;
+}
+
+.menu-item a:hover,
+.menu-item.active a {
+    border: 2px solid #000000;
+    border-radius: 1.2em;
+    padding: 4px 14px;
+}
+
+
+/* 
+*   Main
+*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p {
+    text-align: justify;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+article {
+    width: 100%;
+    border-radius: 15px;
+}
+
+iframe.bandcamp {
+    border-radius: 15px;
+    border: solid #000000 1px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* 
+*   Home
+*/
+
+section#home {
+    display: flex;
+    min-height: 70vh;
+    padding: 20vh 8vw 8vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 16px 0;
+    font-size: 22px;
+    padding: 6px 16px;
+    border-radius: 1.2em;
+    background-color: #000000;
+    color: #fafaf8;
+    margin-top: 14px;
+    margin-right: 10px;
+    transition: all 0.3s;
+}
+
+article img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+}
+
+section#about article {
+    width: 100%;
+    padding: 14vw 8vw;
+}
+
+section#about article h3 {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #000000;
+}
+
+section#about article:nth-child(2) h3 {
+    border-bottom-color: #fafaf8;
+}
+
+section#about article:nth-child(1) {
+    background: #80461B;
+}
+
+section#about article:nth-child(2) {
+    background: #000000;
+    color: #fafaf8;
+}
+
+section#about article:nth-child(2) a {
+    color: #fafaf8;
+}
+
+.about-link {
+    display: block;
+    transition: transform 0.5s;
+}
+
+.about-link:hover {
+    transform: translateX(20px);
+}
+
+.about-link::before {
+    content: '';
+    display: inline-block;
+    background: url('../img/arrow.svg') no-repeat;
+    background-size: 30px 10px;
+    width: 30px;
+    height: 10px;
+}
+
+section#about article:nth-child(2) .about-link::before {
+    background: url('../img/arrow-white.svg') no-repeat;
+}
+
+
+/* 
+* Projects
+*/
+
+section#projects {
+    padding: 14vw 8vw;
+    flex-direction: column;
+}
+
+ul#projects-list li {
+    padding-bottom: 20px;
+    font-size: 24px;
+    padding: 14px 0;
+    margin: 40px auto;
+}
+
+
+/* 
+* Contact - Footer
+*/
+
+footer#contact {
+    padding: 8vw;
+    background: #000000;
+    color: #fafaf8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+footer#contact ul {
+    margin-bottom: 60px;
+}
+
+#site-logo {
+    width: 140px;
+    border-radius: 15px;
+    border: solid #fafaf8 2px;
+}
+
+
+/* Responsive tablet - desktop */
+
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 32px;
+    }
+    nav {
+        display: block;
+    }
+    #burger-menu-button {
+        display: none;
+    }
+    section#home {
+        padding: 30vh 8vw 4vw;
+    }
+    article {
+        width: 45%;
+    }
+    section,
+    footer#contact {
+        flex-direction: row;
+    }
+    section#about article {
+        width: 50%;
+        padding: 8vw;
+        display: table-row-group;
+        box-shadow: 5px 3px 10px #000;
+    }
+    section#projects {
+        padding: 8vw;
+    }
+    ul#projects-list li {
+        padding: 60px;
+        display: inline-flex;
+    }
+    footer#contact {
+        align-items: center;
+    }
+    #site-logo {
+        width: 160px;
+    }
+}
